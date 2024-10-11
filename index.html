@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resilient Distributed Coordination of Multi-Robot Systems</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Graph Neural Network-based Multi-agent Reinforcement Learning</h1>
+        <h2>Resilient Distributed Coordination of Multi-Robot Systems</h2>
+    </header>
+    <section id="introduction">
+        <h2>Introduction</h2>
+        <p>As automation and artificial intelligence continue to integrate into daily operations across industries, the need for robust multi-agent systems has become increasingly critical. These systems are essential in environments where risk factors such as agent attrition and communication disturbances are prevalent. Applications ranging from autonomous vehicular fleets in urban logistics to drones used in large-scale agricultural monitoring exemplify where effective multi-agent coordination is not just beneficial but necessary.</p>
+        
+        <h3>Context and Importance</h3>
+        <p>Multi-agent systems are at the forefront of evolving industrial environments and emergency response scenarios, where multiple robots or agents must work cohesively to achieve common goals. For example, in disaster recovery operations, teams of robots conduct search and rescue missions where the environment can change unpredictably, and communication infrastructures are often compromised. Similarly, in large-scale manufacturing and warehousing operations, coordinated multi-robot systems ensure efficiency and safety, handling complex tasks ranging from assembly to logistics.</p>
+    
+        <h3>Challenges Addressed</h3>
+        <p>Despite their potential, existing multi-agent coordination techniques often fall short under the dynamic and unpredictable conditions these applications present. Traditional methods are prone to vulnerabilities such as agent attrition — where agents might fail or leave the task environment unexpectedly — and communication breakdowns, which are common in complex operational settings. These vulnerabilities can lead to reduced operational efficiency, increased error rates, and even mission failure. The typical fragility of coordination mechanisms in the face of such challenges underscores the necessity for innovations like the MAGEC framework, which leverages advanced graph neural networks and reinforcement learning to enhance robustness and adaptability.</p>
+    </section>
+    <section id="methodology">
+        <h2>Methodology</h2>
+        <p>The Multi-Agent Graph Embedding-based Coordination (MAGEC) system represents a significant advancement in the field of multi-agent reinforcement learning (MARL). By integrating Graph Neural Networks (GNNs) with Multi-Agent Proximal Policy Optimization (MAPPO), MAGEC addresses some of the most pressing challenges in the coordination of autonomous agents.</p>
+        
+        <h3>MAGEC Algorithm</h3>
+        <p>MAGEC leverages a sophisticated algorithm designed to enhance the resilience and efficiency of multi-agent systems. At its core, MAGEC utilizes GNNs to process and analyze graph-based data representing operational environments, enabling a deeper understanding of complex agent interactions and environmental dynamics. This understanding is critical in optimizing agent decision-making and actions based on the global objectives set within the system.</p>
+    
+        <h3>Role of GNNs</h3>
+        <p>Graph Neural Networks play a pivotal role in MAGEC by enabling the system to model and interpret the vast networks of relationships and interactions between agents and their operational environments. GNNs excel in capturing the structural nuances of these networks, processing node and edge data to generate embeddings that encapsulate the essential features necessary for informed decision-making. These capabilities are particularly beneficial in scenarios where environmental conditions are continuously changing and agent configurations are dynamically adjusted.</p>
+    
+        <h3>Training and Simulation</h3>
+        <p>The training of the MAGEC system is conducted using a ROS 2-based simulator, which provides a realistic and flexible platform for testing and development. This simulator allows for the emulation of real-world disturbances such as agent attrition and communication failures, enabling researchers to fine-tune the MAGEC algorithm under controlled yet challenging conditions. Through iterative simulations, MAGEC is rigorously trained to adapt and respond effectively to a range of operational disruptions, thereby ensuring that the system remains robust and reliable even under adverse conditions.</p>
+    </section>
+    <section id="design-methodology">
+        <h2>Design Methodology</h2>
+        <p>The design of the MAGEC system is a testament to innovative engineering, blending traditional reinforcement learning structures with cutting-edge graph neural network technology to address complex multi-agent coordination challenges effectively.</p>
+        
+        <h3>System Architecture</h3>
+        <p>The architecture of MAGEC is built on a robust actor-critic framework, where the 'actor' and 'critic' components play distinct yet complementary roles. The actor component is responsible for making decisions based on the policy derived from the current state, whereas the critic evaluates the action taken by the actor by computing the potential reward. This separation enhances the system’s ability to learn and adapt from each action's consequences, optimizing both the decision-making process and the subsequent outcomes in dynamic environments.</p>
+    
+        <h3>Graph Neural Network Design</h3>
+        <p>The Graph Neural Network (GNN) within MAGEC is specifically tailored to support the unique requirements of multi-agent environments. Key adaptations have been made to the traditional GraphSAGE algorithm to better handle edge attributes, which are critical in pathfinding and navigating complex network topologies. These modifications allow the GNN to incorporate both node and edge data effectively, enabling a richer representation of the environment that aids in more accurate and informed decision-making processes.</p>
+    
+        <h3>Neighbor Scoring</h3>
+        <p>Neighbor scoring is a pivotal feature of MAGEC's GNN architecture, allowing the system to evaluate and rank potential actions based on the utility of each neighbor in the graph. This process involves calculating a score for each neighboring node that reflects its suitability for achieving the system's objectives, considering factors such as proximity, connectivity, and past interactions. The scores inform the actor’s decisions, ensuring that actions are not just reactive but are strategically aligned with the system’s overall goals.</p>
+    </section>
+    
+    <section id="results">
+        <h2>Results</h2>
+        <p>The performance of the MAGEC system has been rigorously tested and evaluated against existing multi-agent coordination methods. These evaluations highlight its robustness and effectiveness, particularly in environments characterized by agent attrition and communication disturbances.</p>
+        
+        <h3>Performance Evaluation</h3>
+        <p>In comparative studies, MAGEC consistently outperforms traditional coordination methods in scenarios marked by high levels of uncertainty and operational interference. During tests involving agent attrition, MAGEC demonstrated a superior ability to maintain coordination and objective fulfillment, minimizing the impact of lost agents on the overall system performance. In environments with communication disturbances, MAGEC’s adaptive communication protocols ensure that even with limited information exchange, the system can still function effectively, showcasing significant resilience compared to other models which exhibited substantial performance degradation under similar conditions.</p>
+    
+        <h3>Graphs and Data</h3>
+        <p>Below are several graphs that depict the performance metrics of MAGEC compared to other coordination methods. These visuals clearly illustrate the advantages of using MAGEC in various test conditions:</p>
+        <ul>
+            <li>
+                <figure>
+                    <img src="images/performance-graph1.png" alt="Graph showing MAGEC performance with agent attrition" style="width:50%;">
+                    <figcaption>Figure 6: This graph shows MAGEC's performance compared to other methods during tests that simulate agent attrition. MAGEC maintains higher performance levels, illustrating its robustness and effectiveness in handling attrition within multi-agent systems.</figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="images/performance-graph2.png" alt="Graph showing MAGEC performance in communication-limited scenarios" style="width:50%;">
+                    <figcaption>Figure 7: This graph demonstrates how MAGEC performs in scenarios with limited communication. Even with reduced communication success rates, MAGEC outperforms other methods, showcasing its capability to function effectively under communication constraints.</figcaption>
+                </figure>
+            </li>
+        </ul>
+        <p>Each graph shows how MAGEC maintains higher efficiency and effectiveness levels, particularly when faced with challenges that typically disrupt multi-agent coordination efforts. The data support the robustness of the MAGEC framework, making it a viable solution for critical applications requiring reliable multi-agent coordination under duress.</p>
+    </section>
+    
+    <section id="conclusion">
+        <h2>Conclusion</h2>
+        <p>The MAGEC system showcases significant advancements in multi-agent coordination through the integration of graph neural networks and multi-agent reinforcement learning. Key findings highlight its resilience and adaptability, allowing it to outperform existing methods in scenarios characterized by high uncertainty and operational disruptions such as agent attrition and communication failures. MAGEC's ability to maintain coordination and achieve objectives despite these challenges sets a new standard for future developments in this field.</p>
+</section>
+    
+    <section id="references">
+        <h2>References</h2>
+        <p>The following works provide foundational insights and methodologies that have influenced the development of the MAGEC system:</p>
+        <ul>
+            <li>E. Taranta, A. Seiwert, A. Goeckner, K. Nguyen, and E. Cherry, "From Warfighting Needs to Robot Actuation: A Complete Rapid Integration Swarming Solution," FR, vol. 3, pp. 460–515, Jan. 2023.</li>
+            <li>J. Gilmer, S. S. Schoenholz, P. F. Riley, O. Vinyals, and G. E. Dahl, "Neural Message Passing for Quantum Chemistry," in Proceedings of the 34th International Conference on Machine Learning, pp. 1263–1272, PMLR, July 2017.</li>
+            <li>W. L. Hamilton, R. Ying, and J. Leskovec, "Inductive Representation Learning on Large Graphs," Sept. 2018.</li>
+        </ul>
+    </section>
+    
+    <footer>
+        <p>Developed by Abraruddin Syed and Shivam Dhakkad.</p>
+    </footer>
+</body>
+</html>
