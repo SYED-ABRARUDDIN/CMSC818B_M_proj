@@ -44,7 +44,39 @@ MAGEC leverages graph neural networks (GNNs) and multi-agent proximal policy opt
         <p> Why GNNs? \\
 
         Many real-world environments and problems, such as road networks, forests, and warehouses, can be naturally represented as graphs. **GNNs**, with their ability to learn embeddings of graphs by aggregating information from nodes and edges, are well-suited for modeling and analyzing such environments. They can capture the attributes of individual entities and the complex relationships between them, making them a natural fit for multi-agent coordination tasks.</p>
+        
+        
         <h3>MAGEC Architecture </h3>
+
+        <p>MAGEC employs an actor-critic architecture, trained entirely through the MAPPO algorithm. This architecture enables distributed coordination among agents while optimizing for global objectives.</p>
+
+        <p>
+            - **~~Centralized Training, Decentralized Execution (CTDE):**~~ MAGEC uses a shared critic and policy during training, enabling optimization based on global objectives. After training, only the actor network is used for execution, allowing decentralized coordination.
+- **Critic Network:** The critic network is a simple multi-layer perceptron (MLP) that takes global information, like node idleness times and an adjacency matrix, to estimate the value of the current state.
+- **Actor Network:** The actor network is more complex, utilizing a custom k-convolution GNN. It receives graph-based observations, performs neighbor scoring using an MLP, and finally selects an action (edge to traverse) based on the output of another "selector" MLP.
+- **Discrete Wayfinding:** MAGEC enables agents to navigate the graph environment by assigning identifiers to neighboring nodes, enforcing an order for action selection.
+- **Graph Neural Network Design:** The GNN used in MAGEC is based on the GraphSAGE algorithm but modified to consider edge attributes, which are crucial for wayfinding. It utilizes a k-hop message passing mechanism with skip connections for efficient training and embedding of large graphs.
+- **Neighbor Scoring:** To select the best edge to traverse, MAGEC employs a "neighbor scoring" strategy, where graph embeddings of neighboring nodes are processed by an MLP to generate scores, which are then used by the selector MLP to determine the action.
+- **Training Environment:** The training environment utilizes graph-based observations, where agents perceive node and edge features within a limited radius. Rewards are given both locally (for visiting nodes) and globally (at the end of each episode) to optimize for minimizing average node idleness time.
+- **Training Algorithm:** A modified MAPPO algorithm is used for training, adapted to handle sparse rewards and actions inherent in the patrolling problem. This involves skipping time steps when actions are not required, reducing the number of samples stored and speeding up training.
+- **Execution:** After training, the learned policy is directly applied to agents during execution, enabling them to select actions based on their local observations.
+        </p>
+
+
+
+
+
+
+
+
+        <ul>
+                    <li>
+                <figure>
+                    <img src="images/MAGEC training architecture.png" alt="Graph showing MAGEC performance in communication-limited scenarios" style="width:50%;">
+                    <figcaption>Figure 7: This graph demonstrates how MAGEC performs in scenarios with limited communication. Even with reduced communication success rates, MAGEC outperforms other methods, showcasing its capability to function effectively under communication constraints.</figcaption>
+                </figure>
+            </li>
+        </ul>
         
         <h3>System Architecture</h3>
         <p>The architecture of MAGEC is built on a robust actor-critic framework, where the 'actor' and 'critic' components play distinct yet complementary roles. The actor component is responsible for making decisions based on the policy derived from the current state, whereas the critic evaluates the action taken by the actor by computing the potential reward. This separation enhances the system’s ability to learn and adapt from each action's consequences, optimizing both the decision-making process and the subsequent outcomes in dynamic environments.</p>
