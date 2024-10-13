@@ -50,8 +50,17 @@ MAGEC leverages graph neural networks (GNNs) and multi-agent proximal policy opt
 
         <p>MAGEC employs an actor-critic architecture, trained entirely through the MAPPO algorithm. This architecture enables distributed coordination among agents while optimizing for global objectives.</p>
 
+        <ul>
+                    <li>
+                <figure>
+                    <img src="images/MAGEC training architecture.png" alt="Graph showing MAGEC performance in communication-limited scenarios" style="width:50%;">
+                    <figcaption>Figure 7: This graph demonstrates how MAGEC performs in scenarios with limited communication. Even with reduced communication success rates, MAGEC outperforms other methods, showcasing its capability to function effectively under communication constraints.</figcaption>
+                </figure>
+            </li>
+        </ul>
+
         <p>
-            <li>Centralized Training, Decentralized Execution (CTDE):**~~ MAGEC uses a shared critic and policy during training, enabling optimization based on global objectives. After training, only the actor network is used for execution, allowing decentralized coordination.
+            <li>Centralized Training, Decentralized Execution (CTDE): MAGEC uses a shared critic and policy during training, enabling optimization based on global objectives. After training, only the actor network is used for execution, allowing decentralized coordination.
 </li>
             <li> Critic Network: The critic network is a simple multi-layer perceptron (MLP) that takes global information, like node idleness times and an adjacency matrix, to estimate the value of the current state.
 </li>
@@ -84,7 +93,7 @@ MAGEC leverages graph neural networks (GNNs) and multi-agent proximal policy opt
         <ul>
                     <li>
                 <figure>
-                    <img src="images/MAGEC training architecture.png" alt="Graph showing MAGEC performance in communication-limited scenarios" style="width:50%;">
+                    <img src="images/ GNN computing node embeddings" alt="Graph showing MAGEC performance in communication-limited scenarios" style="width:50%;">
                     <figcaption>Figure 7: This graph demonstrates how MAGEC performs in scenarios with limited communication. Even with reduced communication success rates, MAGEC outperforms other methods, showcasing its capability to function effectively under communication constraints.</figcaption>
                 </figure>
             </li>
@@ -99,20 +108,7 @@ MAGEC leverages graph neural networks (GNNs) and multi-agent proximal policy opt
         <h3>Neighbor Scoring</h3>
         <p>Neighbor scoring is a pivotal feature of MAGEC's GNN architecture, allowing the system to evaluate and rank potential actions based on the utility of each neighbor in the graph. This process involves calculating a score for each neighboring node that reflects its suitability for achieving the system's objectives, considering factors such as proximity, connectivity, and past interactions. The scores inform the actor’s decisions, ensuring that actions are not just reactive but are strategically aligned with the system’s overall goals.</p>
     </section>
-    
-    <section id="results">
-        <h2>Results</h2>
-        <p>The performance of the MAGEC system has been rigorously tested and evaluated against existing multi-agent coordination methods. These evaluations highlight its robustness and effectiveness, particularly in environments characterized by agent attrition and communication disturbances.</p>
-        
-        <h3>Performance Evaluation</h3>
-        <p>In comparative studies, MAGEC consistently outperforms traditional coordination methods in scenarios marked by high levels of uncertainty and operational interference. During tests involving agent attrition, MAGEC demonstrated a superior ability to maintain coordination and objective fulfillment, minimizing the impact of lost agents on the overall system performance. In environments with communication disturbances, MAGEC’s adaptive communication protocols ensure that even with limited information exchange, the system can still function effectively, showcasing significant resilience compared to other models which exhibited substantial performance degradation under similar conditions.</p>
-    
-        <h3>Graphs and Data</h3>
-        <p>Below are several graphs that depict the performance metrics of MAGEC compared to other coordination methods. These visuals clearly illustrate the advantages of using MAGEC in various test conditions:</p>
-
-        <p>Each graph shows how MAGEC maintains higher efficiency and effectiveness levels, particularly when faced with challenges that typically disrupt multi-agent coordination efforts. The data support the robustness of the MAGEC framework, making it a viable solution for critical applications requiring reliable multi-agent coordination under duress.</p>
-    </section>
-    
+       
     <section id="conclusion">
         <h2>Conclusion</h2>
         <p>MAGEC demonstrates the potential of GNN-based MARL for robust multi-robot coordination in graph environments.  Its resilience to agent attrition and partial observability make it a better approach for real-world applications.
