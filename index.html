@@ -51,7 +51,7 @@
         
         <h3>MAGEC Architecture </h3>
 
-        <p>MAGEC employs an actor-critic architecture, trained entirely through the MAPPO algorithm. This architecture enables distributed coordination among agents while optimizing for global objectives.</p>
+        <p>MAGEC employs an actor-critic architecture, and trained entirely through the MAPPO algorithm. This architecture enables distributed coordination among agents while optimizing for global objectives.</p>
 
         <ul>
                     <li>
@@ -63,11 +63,13 @@
         </ul>
 
         
-            <p>Centralized Training, Decentralized Execution (CTDE): MAGEC uses a shared critic and policy during training, enabling optimization based on global objectives. After training, only the actor network is used for execution, allowing decentralized coordination. </p>
+            <p>Centralized Training, Decentralized Execution (CTDE):The architecture of MAGEC is built on a robust actor-critic framework, where the 'actor' and 'critic' components play distinct yet complementary roles. The actor component is responsible for making decisions based on the policy derived from the current state, whereas the critic evaluates the action taken by the actor by computing the potential reward. This separation enhances the system’s ability to learn and adapt from each action's consequences, optimizing both the decision-making process and the subsequent outcomes in dynamic environments.
+                After training, only the actor network is used for execution, allowing decentralized coordination. </p>
             <p> Critic Network: The critic network is a simple multi-layer perceptron (MLP) that takes global information, like node idleness times and an adjacency matrix, to estimate the value of the current state. </p>
             <p>Actor Network: The actor network is more complex, utilizing a custom k-convolution GNN. It receives graph-based observations, performs neighbor scoring using an MLP, and finally selects an action (edge to traverse) based on the output of another "selector" MLP. </p>
             <p>Discrete Wayfinding:MAGEC enables agents to navigate the graph environment by assigning identifiers to neighboring nodes, enforcing an order for action selection. </p>
-            <p>Graph Neural Network Design:The GNN used in MAGEC is based on the GraphSAGE algorithm but modified to consider edge attributes, which are crucial for wayfinding. It utilizes a k-hop message passing mechanism with skip connections for efficient training and embedding of large graphs.  </p>
+            <p>Graph Neural Network Design: The Graph Neural Network (GNN) within MAGEC is specifically tailored to support the unique requirements of multi-agent environments. Key adaptations have been made to the traditional GraphSAGE algorithm to better handle edge attributes, which are critical in pathfinding and navigating complex network topologies. These modifications allow the GNN to incorporate both node and edge data effectively, enabling a richer representation of the environment that aids in more accurate and informed decision-making processes
+                It utilizes a k-hop message passing mechanism with skip connections for efficient training and embedding of large graphs.  </p>
             <p>Neighbor Scoring: To select the best edge to traverse, MAGEC employs a "neighbor scoring" strategy, where graph embeddings of neighboring nodes are processed by an MLP to generate scores, which are then used by the selector MLP to determine the action. </p>
             <p>Training Environment: The training environment utilizes graph-based observations, where agents perceive node and edge features within a limited radius. Rewards are given both locally (for visiting nodes) and globally (at the end of each episode) to optimize for minimizing average node idleness time. </p>
             <p>Training Algorithm: A modified MAPPO algorithm is used for training, adapted to handle sparse rewards and actions inherent in the patrolling problem. This involves skipping time steps when actions are not required, reducing the number of samples stored and speeding up training. </p>
@@ -91,15 +93,7 @@
             </li>
         </ul>
         
-        <h3>System Architecture</h3>
-        <p>The architecture of MAGEC is built on a robust actor-critic framework, where the 'actor' and 'critic' components play distinct yet complementary roles. The actor component is responsible for making decisions based on the policy derived from the current state, whereas the critic evaluates the action taken by the actor by computing the potential reward. This separation enhances the system’s ability to learn and adapt from each action's consequences, optimizing both the decision-making process and the subsequent outcomes in dynamic environments.</p>
-    
-        <h3>Graph Neural Network Design</h3>
-        <p>The Graph Neural Network (GNN) within MAGEC is specifically tailored to support the unique requirements of multi-agent environments. Key adaptations have been made to the traditional GraphSAGE algorithm to better handle edge attributes, which are critical in pathfinding and navigating complex network topologies. These modifications allow the GNN to incorporate both node and edge data effectively, enabling a richer representation of the environment that aids in more accurate and informed decision-making processes.</p>
-    
-        <h3>Neighbor Scoring</h3>
-        <p>Neighbor scoring is a pivotal feature of MAGEC's GNN architecture, allowing the system to evaluate and rank potential actions based on the utility of each neighbor in the graph. This process involves calculating a score for each neighboring node that reflects its suitability for achieving the system's objectives, considering factors such as proximity, connectivity, and past interactions. The scores inform the actor’s decisions, ensuring that actions are not just reactive but are strategically aligned with the system’s overall goals.</p>
-    </section>
+</section>
        
     <section id="conclusion">
         <h2>Conclusion</h2>
