@@ -24,16 +24,12 @@ Here we focus on solving the benchmark problem of the multirobot patrolling prob
             the worst node idleness time.
 
         </p>
-        <h3>Context and Importance</h3>
-        <p>Multi-agent systems are at the forefront of evolving industrial environments and emergency response scenarios, where multiple robots or agents must work cohesively to achieve common goals. For example, in disaster recovery operations, teams of robots conduct search and rescue missions where the environment can change unpredictably, and communication infrastructures are often compromised. Similarly, in large-scale manufacturing and warehousing operations, coordinated multi-robot systems ensure efficiency and safety, handling complex tasks ranging from assembly to logistics.</p>
-    
-        <h3>Challenges Addressed</h3>
-        <p>Despite their potential, existing multi-agent coordination techniques often fall short under the dynamic and unpredictable conditions these applications present. Traditional methods are prone to vulnerabilities such as agent attrition — where agents might fail or leave the task environment unexpectedly — and communication breakdowns, which are common in complex operational settings. These vulnerabilities can lead to reduced operational efficiency, increased error rates, and even mission failure. The typical fragility of coordination mechanisms in the face of such challenges underscores the necessity for innovations like the MAGEC framework, which leverages advanced graph neural networks and reinforcement learning to enhance robustness and adaptability.</p>
-    </section>
+ </section>
     <section id="methodology">
         <h2>Methodology</h2>
-        <p>The Multi-Agent Graph Embedding-based Coordination (MAGEC) system represents a significant advancement in the field of multi-agent reinforcement learning (MARL). By integrating Graph Neural Networks (GNNs) with Multi-Agent Proximal Policy Optimization (MAPPO), MAGEC addresses some of the most pressing challenges in the coordination of autonomous agents.</p>
-        
+
+        <p>The approach used is to use Multi-Agent Graph Embedding-based Coordination (MAGEC) based on a MARL** algorithm designed for resilient distributed coordination of multi-robot systems, particularly in scenarios prone to disturbances like agent attrition and partial observability.
+MAGEC leverages graph neural networks (GNNs) and multi-agent proximal policy optimization (MAPPO) to enable robust coordination. MAGEC uses an actor-critic architecture, with a custom k-convolution GNN serving as the actor. Given graph-based inputs, the actor must select an edge of the graph for the agent to traverse next.</</p>
         <h3>MAGEC Algorithm</h3>
         <p>MAGEC leverages a sophisticated algorithm designed to enhance the resilience and efficiency of multi-agent systems. At its core, MAGEC utilizes GNNs to process and analyze graph-based data representing operational environments, enabling a deeper understanding of complex agent interactions and environmental dynamics. This understanding is critical in optimizing agent decision-making and actions based on the global objectives set within the system.</p>
     
