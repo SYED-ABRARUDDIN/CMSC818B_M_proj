@@ -39,6 +39,12 @@ MAGEC leverages graph neural networks (GNNs) and multi-agent proximal policy opt
     <section id="design-methodology">
         <h2>Design Methodology</h2>
         <p>The design of the MAGEC system is a testament to innovative engineering, blending traditional reinforcement learning structures with cutting-edge graph neural network technology to address complex multi-agent coordination challenges effectively.</p>
+
+
+        <p> Why GNNs? \\
+
+        Many real-world environments and problems, such as road networks, forests, and warehouses, can be naturally represented as graphs. **GNNs**, with their ability to learn embeddings of graphs by aggregating information from nodes and edges, are well-suited for modeling and analyzing such environments. They can capture the attributes of individual entities and the complex relationships between them, making them a natural fit for multi-agent coordination tasks.</p>
+        <h3>MAGEC Architecture </h3>
         
         <h3>System Architecture</h3>
         <p>The architecture of MAGEC is built on a robust actor-critic framework, where the 'actor' and 'critic' components play distinct yet complementary roles. The actor component is responsible for making decisions based on the policy derived from the current state, whereas the critic evaluates the action taken by the actor by computing the potential reward. This separation enhances the system’s ability to learn and adapt from each action's consequences, optimizing both the decision-making process and the subsequent outcomes in dynamic environments.</p>
@@ -78,8 +84,8 @@ MAGEC leverages graph neural networks (GNNs) and multi-agent proximal policy opt
     
     <section id="conclusion">
         <h2>Conclusion</h2>
-        <p>The MAGEC system showcases significant advancements in multi-agent coordination through the integration of graph neural networks and multi-agent reinforcement learning. Key findings highlight its resilience and adaptability, allowing it to outperform existing methods in scenarios characterized by high uncertainty and operational disruptions such as agent attrition and communication failures. MAGEC's ability to maintain coordination and achieve objectives despite these challenges sets a new standard for future developments in this field.</p>
-</section>
+        <p>MAGEC demonstrates the potential of GNN-based MARL for robust multi-robot coordination in graph environments.  Its resilience to agent attrition and partial observability make it a better approach for real-world applications.
+        </p></section>
     
     <section id="references">
         <h2>References</h2>
